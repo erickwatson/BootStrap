@@ -10,7 +10,7 @@ using glm::mat4;
 using aie::Gizmos;
 
 Application3D::Application3D() {
-
+	
 }
 
 Application3D::~Application3D() {
