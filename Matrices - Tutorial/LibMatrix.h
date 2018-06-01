@@ -12,9 +12,9 @@ public:
 
 class Matrix3 {
 public:
-	Vector3 xAxis;
+	/*Vector3 xAxis;
 	Vector3 yAxis;
-	Vector3 zAxis;
+	Vector3 zAxis;*/
 };
 
 class Matrix4 {
