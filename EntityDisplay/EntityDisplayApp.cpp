@@ -45,7 +45,9 @@ void EntityDisplayApp::update(float deltaTime) {
 		quit();
 
 	// map the memory from the shared block to a pointer we can manipulate
-	Entity* data = (Entity*)MapViewOfFile(m_fileHandle, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(Entity) * 10);	for (int i = 0; i < 10; i++)		m_entities[i] = data[i];
+	Entity* data = (Entity*)MapViewOfFile(m_fileHandle, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(Entity) * 10);
+	for (int i = 0; i < 10; i++)
+		m_entities[i] = data[i];
 }
 
 void EntityDisplayApp::draw() {
