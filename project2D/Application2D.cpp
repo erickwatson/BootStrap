@@ -2,6 +2,7 @@
 #include "Texture.h"
 #include "Font.h"
 #include "Input.h"
+#include "Vector3.h"
 
 Application2D::Application2D() {
 
