@@ -24,12 +24,18 @@
     <ClCompile Include="SceneObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="My2DApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SceneObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="My2DApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -109,6 +109,10 @@ void Matrix3::scale(const Vector3& v) {
 	*this = *this * m;
 }
 
+void Matrix3::translate(float x, float y) {
+	translation += Vector3(x, y, 0);
+}
+
 void Matrix3::setRotateX(float radians) {
 	
 	// leave X axis and elements unchanged

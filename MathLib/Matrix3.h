@@ -56,6 +56,8 @@ public:
 
 	Matrix3 transposed() const;
 
+	void translate(float x, float y);
+
 	void setScaled(float x, float y, float z);
 
 	void setScaled(const Vector3& v);
