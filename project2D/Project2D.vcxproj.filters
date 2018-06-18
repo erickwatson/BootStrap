@@ -24,7 +24,7 @@
     <ClCompile Include="SceneObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="My2DApp.cpp">
+    <ClCompile Include="SpriteObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClInclude Include="SceneObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="My2DApp.h">
+    <ClInclude Include="SpriteObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

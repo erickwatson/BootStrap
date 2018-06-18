@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "Renderer2D.h"
 #include <string>
+#include "SpriteObject.h"
 
 using namespace std;
 
@@ -39,6 +40,6 @@ protected:
 	//m_timer -= deltaTime;
 	//if (m_timer <= 0);// Do stuff
 
-	
+	SpriteObject m_tank, m_turret;
 	
 };

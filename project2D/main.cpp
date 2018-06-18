@@ -1,9 +1,9 @@
-#include "My2DApp.h"
+#include "Application2D.h"
 
 int main() {
 	
 	// allocation
-	auto app = new My2DApp();
+	auto app = new Application2D();
 	// change to Myapp2d
 
 	// initialise and loop

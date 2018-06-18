@@ -40,7 +40,7 @@ public:
 	void setPosition(float x, float y);
 	void setRotate(float radians);
 	void setScale(float width, float height);
-	void translate(float x, float y, float z);
+	void translate(float x, float y);
 	void rotate(float radians);
 	void scale(float width, float height);
 

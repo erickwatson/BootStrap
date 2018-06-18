@@ -73,7 +73,7 @@ void SceneObject::setScale(float width, float height) {
 	updateTransform();
 }
 
-void SceneObject::translate(float x, float y, float z) {
+void SceneObject::translate(float x, float y){
 	m_localTransform.translate(x, y);
 	updateTransform();
 }
