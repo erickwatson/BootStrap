@@ -5,6 +5,7 @@
 #include "Vector3.h"
 #include "SceneObject.h"
 #include "SpriteObject.h"
+#include "Timer.h"
 
 
 Application2D::Application2D() {
@@ -17,7 +18,7 @@ Application2D::~Application2D() {
 
 
 bool Application2D::startup() {
-	
+	Timer start;
 	m_2dRenderer = new aie::Renderer2D();
 
 	// Load textures
@@ -33,8 +34,8 @@ bool Application2D::startup() {
 	// Center the tank
 	m_tank.setPosition(getWindowWidth() / 2.f, getWindowHeight() / 2.f);
 
-	//m_font = new aie::Font("./font/consolas.ttf", 32);
-	//
+	m_font = new aie::Font("./font/consolas.ttf", 32);
+	
 	m_cameraX = 0;
 	m_cameraY = 0;
 	m_timer = 0;
@@ -45,8 +46,8 @@ bool Application2D::startup() {
 void Application2D::shutdown() {
 	
 	delete m_font;
-	delete m_texture;
-	delete m_shipTexture;
+	//delete m_tank;
+	//delete m_turret;
 	delete m_2dRenderer;
 }
 
@@ -140,11 +141,17 @@ void Application2D::draw() {
 	//m_2dRenderer->drawSprite(nullptr, 400, 400, 50, 50, 3.14159f * 0.25f, 1);
 	//
 	//
-	//// output some text, uses the last used colour
-	//char fps[32];
-	//sprintf_s(fps, 32, "FPS: %i", getFPS());
-	//m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
-	//m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
+	// output some text, uses the last used colour
+
+	float elapsedSeconds = start.seconds();
+	
+	char fps[32];
+	sprintf_s(fps, 32, "FPS: %i", getFPS());
+	m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
+	m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
+
+	sprintf_s(elapsed, 32 "Time elapsed: %i", elapsedSeconds());
+	m_2dRenderer->drawText(m_font, elapsed , 0, 720 - 128);
 
 	// done drawing sprites
 	m_2dRenderer->end();
