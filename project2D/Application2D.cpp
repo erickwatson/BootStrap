@@ -150,7 +150,7 @@ void Application2D::draw() {
 	m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
 	m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
 
-	sprintf_s(elapsed, 32 "Time elapsed: %i", elapsedSeconds());
+	sprintf_s(elapsed, 32, "Time elapsed: %i", elapsedSeconds());
 	m_2dRenderer->drawText(m_font, elapsed , 0, 720 - 128);
 
 	// done drawing sprites

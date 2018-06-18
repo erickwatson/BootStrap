@@ -21,7 +21,9 @@ public:
 
 
 private:
-
+	
+	
+	//start?
 	Clock::time_point m_epoch;
 
 };
