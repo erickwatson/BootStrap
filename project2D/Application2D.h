@@ -4,6 +4,7 @@
 #include "Renderer2D.h"
 #include <string>
 #include "SpriteObject.h"
+#include "Timer.h"
 
 using namespace std;
 
@@ -28,6 +29,8 @@ protected:
 
 	float m_cameraX, m_cameraY;
 	//float m_timer;
+
+	Timer m_start;
 
 	string m_playerName;
 	float m_reactionTime = 0;

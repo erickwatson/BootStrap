@@ -18,7 +18,8 @@ Application2D::~Application2D() {
 
 
 bool Application2D::startup() {
-	Timer start;
+
+	m_start.reset();
 	m_2dRenderer = new aie::Renderer2D();
 
 	// Load textures
@@ -52,6 +53,8 @@ void Application2D::shutdown() {
 }
 
 void Application2D::update(float deltaTime) {
+	
+	//Timer updateTimer;
 
 	m_timer += deltaTime;
 	m_tank.update(deltaTime);
@@ -100,11 +103,16 @@ void Application2D::update(float deltaTime) {
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
 		quit();
+
+	//m_TimeSpentInUpdate += updateTimer.nanoseconds();
+	//m_numUpdates++;
 }
 
 void Application2D::draw() {
 
+	float elapsedSeconds = m_start.seconds(); //todo use timer
 	
+
 	// wipe the screen to the background colour
 	clearScreen();
 
@@ -142,15 +150,16 @@ void Application2D::draw() {
 	//
 	//
 	// output some text, uses the last used colour
-
-	float elapsedSeconds = start.seconds();
+	//float elapsedSeconds = m_timer;
+	
 	
 	char fps[32];
 	sprintf_s(fps, 32, "FPS: %i", getFPS());
 	m_2dRenderer->drawText(m_font, fps, 0, 720 - 32);
 	m_2dRenderer->drawText(m_font, "Press ESC to quit!", 0, 720 - 64);
 
-	sprintf_s(elapsed, 32, "Time elapsed: %i", elapsedSeconds());
+	char elapsed[32];
+	sprintf_s(elapsed, 32, "Time elapsed: %8.2f", elapsedSeconds);
 	m_2dRenderer->drawText(m_font, elapsed , 0, 720 - 128);
 
 	// done drawing sprites

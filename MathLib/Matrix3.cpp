@@ -2,20 +2,7 @@
 #include "Matrix3.h"
 #include <cmath>
 
-/*
 
-Place inside main cpp
-
-Matrix3 m;
-
-// Assign a vector to X-axis
-m[0] = Vector3(1, 0, 0);
-
-// Assign a value to Z-axis.y if
-// Vector3 has sub-script access
-m[2][1] = 99;
-
-*/
 
 Vector3& Matrix3::operator [] (int index) {
 	return axis[index];
