@@ -62,43 +62,30 @@ void Application2D::update(float deltaTime) {
 	// input example
 	aie::Input* input = aie::Input::getInstance();
 
-	////// use arrow keys to move camera
-	//if (input->isKeyDown(aie::INPUT_KEY_UP))
-	//	m_cameraY += 500.0f * deltaTime;
-	//
-	//if (input->isKeyDown(aie::INPUT_KEY_DOWN))
-	//	m_cameraY -= 500.0f * deltaTime;
-	//
-	//if (input->isKeyDown(aie::INPUT_KEY_LEFT))
-	//	m_cameraX -= 500.0f * deltaTime;
-	//
-	//if (input->isKeyDown(aie::INPUT_KEY_RIGHT))
-	//	m_cameraX += 500.0f * deltaTime;
-	
+	float tankSpin = 3;
+	float turretSpin = 5;
 
 	// Rotate the tank
 	if (input->isKeyDown(aie::INPUT_KEY_A))
-		m_tank.rotate(deltaTime*3);
+		m_tank.rotate(deltaTime*tankSpin);
 	if (input->isKeyDown(aie::INPUT_KEY_D))
-		m_tank.rotate(-deltaTime*3);
+		m_tank.rotate(-deltaTime*tankSpin);
 
 	// Move tank, the 100 magic-number represents speed
 	if (input->isKeyDown(aie::INPUT_KEY_W)) {
-		auto facing = m_tank.getLocalTransform()[1] *
-												deltaTime * 400;
-		m_tank.translate(facing.x, facing.y);
+		auto facing = m_tank.getLocalTransform()[1] * 200;
+		m_tank.accelerate(facing.x, facing.y);
 	}
 	if (input->isKeyDown(aie::INPUT_KEY_S)) {
-		auto facing = m_tank.getLocalTransform()[1] *
-												deltaTime * -400;
-		m_tank.translate(facing.x, facing.y);
+		auto facing = m_tank.getLocalTransform()[1] * -200;
+		m_tank.accelerate(facing.x, facing.y);
 	}
 
 	// Rotate turret
 	if (input->isKeyDown(aie::INPUT_KEY_LEFT))
-		m_turret.rotate(deltaTime*5);
+		m_turret.rotate(deltaTime*turretSpin);
 	if (input->isKeyDown(aie::INPUT_KEY_RIGHT))
-		m_turret.rotate(-deltaTime*5);
+		m_turret.rotate(-deltaTime*turretSpin);
 
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
@@ -151,7 +138,7 @@ void Application2D::draw() {
 	//
 	// output some text, uses the last used colour
 	//float elapsedSeconds = m_timer;
-	
+
 	
 	char fps[32];
 	sprintf_s(fps, 32, "FPS: %i", getFPS());

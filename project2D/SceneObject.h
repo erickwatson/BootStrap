@@ -2,6 +2,7 @@
 #include "Renderer2D.h"
 #include "Matrix3.h"
 #include <vector>
+#include <Vector2.h>
 using namespace std;
 
 class SceneObject
@@ -32,15 +33,18 @@ public:
 	const Matrix3& getLocalTransform() const {
 		return m_localTransform;
 	}
+
 	const Matrix3& getGlobalTransform() {
 		return m_globalTransform;
 	}
+
 	void updateTransform();
 
 	void setPosition(float x, float y);
 	void setRotate(float radians);
 	void setScale(float width, float height);
 	void translate(float x, float y);
+	void accelerate(float x, float y);
 	void rotate(float radians);
 	void scale(float width, float height);
 
@@ -49,6 +53,14 @@ protected:
 	// Parents and Children
 	SceneObject * m_parent = nullptr;
 	std::vector<SceneObject*> m_children;
+
+	Vector2 m_position;
+	Vector2 m_acceleration;
+	Vector2 m_velocity;
+	Vector2 m_force;
+
+	float m_drag = 0.01f;
+
 
 	// Transforms
 	Matrix3 m_localTransform = Matrix3::identity;

@@ -2,7 +2,7 @@
 #include "stdafx.h"
 
 class Vector2 {
-public: 
+public:
 	union {
 		struct {
 			float x, y;
@@ -31,6 +31,8 @@ public:
 	Vector2 operator - (const Vector2& other) const;
 
 	Vector2& operator -= (const Vector2& other);
+
+	Vector2& operator += (const Vector2& other);
 
 	Vector2 operator * (float scalar) const;
 

@@ -33,12 +33,31 @@ SceneObject::~SceneObject()
 //}
 
 void SceneObject::update(float deltaTime) {
+	m_velocity += m_acceleration * deltaTime;
+
+	m_position += m_velocity * deltaTime;
+
+	// Damping/drag
+	m_velocity = m_velocity * (1.0f - m_drag);
+
+	std::cout << "Velocity: " << m_velocity.x << "," << m_velocity.y << std::endl;
+
+	system("CLS");
+
+	setPosition(m_position.x, m_position.y);
+	updateTransform();
+
 	// run onUpdate behaviour
 	onUpdate(deltaTime);
+
 
 	// update children
 	for (auto child : m_children)
 		child->update(deltaTime);
+
+	// Reset the acceleration
+	m_acceleration = { 0, 0 };
+
 }
 
 void SceneObject::draw(aie::Renderer2D* renderer) {
@@ -59,6 +78,7 @@ void SceneObject::updateTransform() {
 
 	for (auto child : m_children)
 			child->updateTransform();
+
 }
 
 void SceneObject::setPosition(float x, float y) {
@@ -79,6 +99,11 @@ void SceneObject::setScale(float width, float height) {
 void SceneObject::translate(float x, float y){
 	m_localTransform.translate(x, y);
 	updateTransform();
+}
+
+void SceneObject::accelerate(float x, float y) {
+	m_acceleration = Vector2(x, y);
+	
 }
 
 void SceneObject::rotate(float radians) {
