@@ -6,6 +6,9 @@
 
 
 SceneObject::SceneObject()
+	//:	m_parent(nullptr),
+	//	m_localTransform(Matrix3::identity),
+	//	m_globalTransform(Matrix3::identity)
 {
 }
 

@@ -24,8 +24,8 @@ protected:
 
 	aie::Texture* m_texture = nullptr;
 	// Transforms
-	Matrix3 m_localTransform = Matrix3::identity;
-	Matrix3 m_globalTransform = Matrix3::identity;
+	//Matrix3 m_localTransform = Matrix3::identity;
+	//Matrix3 m_globalTransform = Matrix3::identity;
 
 };
 

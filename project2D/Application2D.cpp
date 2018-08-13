@@ -74,31 +74,31 @@ void Application2D::update(float deltaTime) {
 	//
 	//if (input->isKeyDown(aie::INPUT_KEY_RIGHT))
 	//	m_cameraX += 500.0f * deltaTime;
-	//
+	
 
 	// Rotate the tank
 	if (input->isKeyDown(aie::INPUT_KEY_A))
-		m_tank.rotate(deltaTime);
+		m_tank.rotate(deltaTime*3);
 	if (input->isKeyDown(aie::INPUT_KEY_D))
-		m_tank.rotate(-deltaTime);
+		m_tank.rotate(-deltaTime*3);
 
 	// Move tank, the 100 magic-number represents speed
 	if (input->isKeyDown(aie::INPUT_KEY_W)) {
 		auto facing = m_tank.getLocalTransform()[1] *
-												deltaTime * 100;
+												deltaTime * 400;
 		m_tank.translate(facing.x, facing.y);
 	}
 	if (input->isKeyDown(aie::INPUT_KEY_S)) {
 		auto facing = m_tank.getLocalTransform()[1] *
-												deltaTime * -100;
+												deltaTime * -400;
 		m_tank.translate(facing.x, facing.y);
 	}
 
 	// Rotate turret
 	if (input->isKeyDown(aie::INPUT_KEY_LEFT))
-		m_turret.rotate(deltaTime);
+		m_turret.rotate(deltaTime*5);
 	if (input->isKeyDown(aie::INPUT_KEY_RIGHT))
-		m_turret.rotate(-deltaTime);
+		m_turret.rotate(-deltaTime*5);
 
 	// exit the application
 	if (input->isKeyDown(aie::INPUT_KEY_ESCAPE))
